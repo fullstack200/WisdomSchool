@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html lang="en">
+
+<head>
+    {% block extrahead %}
+    <!-- CSS file linking-->
+    <link rel="stylesheet" href="{% static './static/CSS/single-event.css' %}">
+    {% endblock %}
+</head>
+{% block content %}
+
+<body>
+    <div class="main-body">
+        <div id="img-out"></div>
+        <section class="display-box" id="display-box">
+            {% for i in sports %}
+            <div class="img-panel">
+                <img class="img" src="{{ i.picture.url }}" alt="">
+                 <p style="margin-top:10px;">{{ i.pictureName }}</p>
+                <p>Posted on {{ i.pictureDate }}</p>
+            </div>
+            {% endfor %}
+        </section>
+    </div>
+    <script>
+        /*
+* Hello and welcome to image viewer
+*
+* Expand images by clicking them.
+*/
+
+        // Here is our function that makes the magic happen.
+        // When new images are added call this function again
+        // to assign the event listeners.
+        function imageViewer() {
+            // Lets start by collecting all of the images
+            // with our special class and also grabing the output container
+            let imgs = document.getElementsByClassName("img"),
+                out = document.getElementById("img-out");
+
+            // Next lets assign an event listener to each image
+            // by looping through them
+            for (let i = 0; i < imgs.length; i++) {
+
+                // We need to make sure we dont add listeners more than one time 
+                // to an image
+                if (!imgs[i].classList.contains("el")) {
+
+                    imgs[i].classList.add("el");
+                    // In this listener we are going to toggle a special class
+                    // that will highlight the image container
+                    imgs[i].addEventListener("click", lightImage);
+                    function lightImage() {
+                        let container = document.getElementsByClassName("img-panel")[i];
+                        container.classList.toggle("img-panel__selct");
+                    };
+
+                    // Now we are going to create a second listener and let
+                    // It render the image to the user.
+                    imgs[i].addEventListener("click", openImage);
+                    function openImage() {
+                        let imgElement = document.createElement("img"),
+                            imgWrapper = document.createElement("div"),
+                            imgClose = document.createElement("div"),
+                            container = document.getElementsByClassName("img-panel")[i];
+                        container.classList.add("img-panel__selct");
+                        imgElement.setAttribute("class", "image__selected");
+                        imgElement.src = imgs[i].src;
+                        imgWrapper.setAttribute("class", "img-wrapper");
+                        imgClose.setAttribute("class", "img-close");
+                        imgWrapper.appendChild(imgElement);
+                        imgWrapper.appendChild(imgClose);
+
+
+                        setTimeout(
+                            function () {
+                                imgWrapper.classList.add("img-wrapper__initial");
+                                imgElement.classList.add("img-selected-initial");
+                            }, 50);
+
+                        out.appendChild(imgWrapper);
+                        imgClose.addEventListener("click", function () {
+                            container.classList.remove("img-panel__selct");
+                            out.removeChild(imgWrapper);
+                        });
+                    }
+                }
+            }
+        }
+        imageViewer();
+
+
+
+        //==================================================
+        // This is code I modified from a github repo by me
+        // Repo:
+        //
+        //    https://github.com/matthewLeFevre/picRender
+        //
+        // It is not required for the image viewer but 
+        // I am adding it for interactivity 
+        //--------------------------------------------------
+
+        let picRender = {
+            imgObjArr: [],
+            imgInput: document.getElementById("img-upload"),
+            imgOutput: document.getElementById("display-box"),
+
+            //==================================================
+            // standalone Helper Functions
+            //==================================================
+            // Generate a random 5 character string of numbers
+            generateRandomId: function () {
+                let id = "";
+                // Addjust the length of the id by changing for loop
+                for (let i = 0; i < 5; i++) {
+                    id += Math.floor((Math.random() * 10) + 1);
+                }
+                return id;
+            },
+
+            //==================================================
+            // Render Uploaded Images
+            //==================================================
+            renderImages: function () {
+                picRender.imgInput.addEventListener("change", function () {
+                    for (let i = 0; i < picRender.imgInput.files.length; i++) {
+                        let randomId = picRender.generateRandomId(),
+                            imgObj = {
+                                imgEl: document.createElement("img"),
+                                imgPanel: document.createElement("div"),
+                                fileData: picRender.imgInput.files[i],
+                                fileName: picRender.imgInput.files[i].name,
+                                fileSize: picRender.imgInput.files[i].size,
+                                fileId: "fileId_" + picRender.imgInput.files[i].name + randomId,
+
+                                configImage: function () {
+                                    this.imgEl.setAttribute("class", "img");
+                                    this.imgEl.src = URL.createObjectURL(this.fileData);
+                                    this.imgPanel.setAttribute("id", this.fileId);
+                                    this.imgPanel.setAttribute("class", "img-panel");
+                                    this.imgPanel.appendChild(this.imgEl);
+                                    picRender.imgOutput.appendChild(this.imgPanel);
+                                    imageViewer();
+                                }
+                            };
+                        imgObj.configImage();
+                        picRender.imgObjArr.push(imgObj);
+                    };
+                });
+            },
+
+        }
+
+        picRender.renderImages();
+
+        /*
+        ** Working on making this thing a class
+        */
+
+        class ImageViewer {
+            constructor(imgArr, imgContArr, imgOutput) {
+                this.imgArr = imgArr;
+                this.imgContArr = imgContArr;
+                this.imgOutput = imgOutput;
+                this.initialize();
+            }
+
+            initialize() {
+                for (let i = 0; i < this.imgArr.length; i++) {
+
+                    let img = this.imgArr[i];
+
+                    if (!img.classList.contains("el")) {
+
+                        img.classList.add("el");
+                        img.addEventListener("click", function () {
+
+                            let imgElement = document.createElement("div"),
+                                imgWrapper = document.createElement("div"),
+                                imgClose = document.createElement("div"),
+                                container = this.imgContArr[i];
+
+                            container.classList.toggle("img-panel__selct");
+                            imgClose.setAttribute("class", "img-close");
+                            imgElement.setAttribute("class", "image__selected");
+                            imgElement.src = imgs[i].src;
+                            imgWrapper.setAttribute("class", "img-wrapper");
+                            imgWrapper.appendChild(imgElement);
+                            imgWrapper.appendChild(imgClose);
+
+                            setTimeout(
+                                function () {
+                                    imgWrapper.classList.add("img-wrapper__initial");
+                                    imgElement.classList.add("img-selected-initial");
+                                }, 50);
+
+                            this.imgOutput.appendChild(imgWrapper);
+
+                            imgclose.addeventListener("click", function () {
+                                container.classList.remove("img-panel__selct");
+                                this.imgOutput.removeChild(imgWrapper);
+                            })
+
+                        });
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    </script>
+</body>
+{% endblock content %}
+
+</html>

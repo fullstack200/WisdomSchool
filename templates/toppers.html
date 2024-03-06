@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html lang="en">
+
+<head>
+    {% block extrahead %}
+    <!-- CSS file linking-->
+    <link rel="stylesheet" href="{% static './static/CSS/toppers.css' %}">
+     <!-- JS file linking -->
+     <script src="{% static './static/JS/reveal.js' %}"></script>
+
+    {% endblock %}
+</head>
+{% block content %}
+
+<body>
+    <div class="main-body">
+        <div class="heading">
+            <h1>Academic Achievements</h1>
+        </div>
+        <div class="topper-block">
+            {% for i in toppers %}
+            <div class="header__center reveal">
+                <h1>Year - {{ i.yearOfexam }}</h1>
+            </div>
+            <div class="topper-sub-block reveal">
+                <div class="img-name">
+                    <img src="{{ i.topper1Image.url }}" alt=""><br>
+                    <p style="margin-top:20px;">{{ i.topper1Name }}</p>
+                    <p>Percentage: {{ i.topper1Marks }} %</p>
+                </div>
+                <div class="img-name">
+                    <img src="{{ i.topper2Image.url }}" alt=""><br>
+                    <p style="margin-top:20px;">{{ i.topper2Name }}</p>
+                    <p>Percentage: {{ i.topper2Marks }} %</p>
+                </div>
+                <div class="img-name">
+                    <img src="{{ i.topper3Image.url }}" alt=""><br>
+                    <p style="margin-top:20px;">{{ i.topper3Name }}</p>
+                    <p>Percentage: {{ i.topper3Marks }} %</p>
+                </div>
+            </div><br><br>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+{% endblock content %}
+
+</html>

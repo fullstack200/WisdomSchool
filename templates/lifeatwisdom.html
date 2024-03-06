@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html lang="en">
+
+<head>
+    {% block extrahead %}
+    <!-- CSS file linking-->
+    <link rel="stylesheet" href="{% static './static/CSS/lifeatwisdom.css' %}">
+    <!-- JS file linking -->
+    <script src="{% static './static/JS/reveal.js' %}"></script>
+
+    {% endblock %}
+</head>
+{% block content %}
+
+<body>
+    <div class="main-body">
+        <div class="heading">
+            <h1>Life at wisdom</h1>
+        </div><br>
+        <div class="content">
+            <h1 class="reveal">Education with Islamic Studies</h1>
+            <hr class="reveal" style="background-color:#020381; height:2px;width:60px;">
+            <div class="sub-content1 reveal">
+
+                <img src="{% static './static/Media/slide4.jpg'%}" alt="">
+                <p>Wisdom International School is more than a traditional educational institution. Alongside core
+                    academic subjects, the school imparts crucial life etiquettes and moral values, cultivating students
+                    into not just academically adept individuals, but also compassionate and principled citizens. Rooted
+                    in Islamic studies, the curriculum embraces a holistic approach that extends beyond textbooks,
+                    guiding students on a path to live harmoniously, fostering peace and contributing to the betterment
+                    of society.
+                    As the school equips students with a strong foundation in their faith, it also emphasizes their role
+                    as productive and responsible members of the country. By instilling values of service and gratitude,
+                    students are empowered to give back to their nation through meaningful actions. This philosophy
+                    reflects Wisdom International School's commitment to developing individuals who not only excel in
+                    their academic pursuits but also contribute positively to their communities and the nation at
+                    large.</p>
+            </div>
+            <div class="sub-content2 reveal">
+                <img src="{% static './static/Media/boys.jpg' %}" alt="">
+                <p>
+                    The school's incorporation of life etiquettes, moral values, and Islamic studies alongside its core
+                    curriculum enriches the educational experience, creating well-rounded individuals who embody the
+                    principles of compassion, integrity, and service. In this way, Wisdom International School
+                    Chamrajpet not only prepares students for academic success but also for a life dedicated to
+                    fostering peace, harmony, and prosperity in their beloved country.
+                    Wisdom International School transcends the conventional role of an educational institution by
+                    weaving essential life etiquettes and moral values into its core academic curriculum. Beyond merely
+                    imparting knowledge, the school cultivates a holistic growth, nurturing students into not only
+                    proficient learners but also compassionate, principled citizens. The school's foundation in Islamic
+                    studies serves as a guiding light for this transformative journey.
+                </p>
+            </div>
+        </div>
+        <div class="header__center reveal">
+            <h1>Our Values</h1>
+        </div>
+        <div class="values reveal">
+            <div class="sub-values"><i class="fa-solid fa-timer" style="color: #ffffff;"></i><br><i
+                    class="fa-solid fa-clock" style="color: #ffffff;"></i>&nbsp; Discipline</div>
+            <div class="sub-values"><i class="fa-solid fa-hand-sparkles" style="color: #ffffff;"></i>&nbsp; Hygine</div>
+            <div class="sub-values"><i class="fa-solid fa-book" style="color: #ffffff;"></i>&nbsp; Knowledge</div>
+            <div class="sub-values"><i class="fa-regular fa-head-side-brain" style="color: #ffffff;"></i><br><i
+                    class="fa-solid fa-person" style="color: #ffffff;"></i>&nbsp; Character</div>
+        </div>
+    </div>
+</body>
+
+{% endblock content %}
+
+</html>

@@ -1,0 +1,93 @@
+/*Font family link*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,900;1,900&family=Roboto:wght@300;900&display=swap');
+
+:root {
+    --font: 'Montserrat';
+}
+
+body {
+    margin: 0;
+}
+
+.topper-block {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.topper-sub-block {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.img-name {
+    text-align: center;
+    color: #020381;
+    font-family: var(--font);
+    line-height: 1px;
+}
+
+.img-name img {
+    border-radius: 40px 0px;
+}
+
+@media screen and (min-width: 1024px) {
+    .header__center{
+        margin-top: 50px;
+    }
+
+    .img-name img {
+        height: 200px;
+        width: 200px;
+    }
+
+    .img-name p {
+        font-size: 1rem;
+    }
+
+    .topper-sub-block {
+        margin-top: 100px;
+    }
+}
+
+@media screen and (max-width: 820px) {
+
+    .topper-sub-block {
+        margin-top: 70px;
+    }
+
+    .img-name img {
+        height: 150px;
+        width: 150px;
+    }
+
+    .img-name p {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .header__center{
+        margin-top: 10px;
+    }
+
+    .topper-sub-block {
+        margin-top: 50px;
+    }
+
+    .img-name{
+        margin:0 10px;
+    }
+
+    .img-name img {
+        height: 100px;
+        width: 100px;
+    }
+
+    .img-name p {
+        font-size: 0.9rem;
+    }
+}

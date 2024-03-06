@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html lang="en">
+
+<head>
+    {% block extrahead %}
+    <!-- CSS file linking-->
+    <link rel="stylesheet" href="{% static './static/CSS/contact.css' %}">
+    {% endblock %}
+
+</head>
+{% block content %}
+
+<body>
+    <div class="main-body">
+        <div class="heading">
+            <h1>Contact Us</h1>
+        </div>
+        <h1 class="head">For Admissions, PTA, and other queries, contact us at. </h1>
+        <div class="main-content">
+            <div id="address">
+               <img id="loc-icon" src="{% static './static/Media/location.png' %}" alt="">
+                <h3>Visit Us</h3>
+                <p>Mon to Fri - 8:30 AM to 4:30 PM </p>
+                <p>Sat - 8:30 AM to 1:00 PM</p>
+                <p>Sun - Holiday</p>
+            </div>
+            <div id="phone">
+                <img class="icon-img" src="{% static './static/Media/phone.png' %}" alt="">
+                <h3>Call Us</h3>
+                <p>+91-9972149622 | 090196 49237 | 080 4814 5521</p>
+            </div>
+            <div>
+                <img class="icon-img" src="{% static './static/Media/email.png' %}" alt="">
+                <h3>Write to Us</h3>
+                <p>wisdomchamrajpet@gmail.com</p>
+            </div>
+        </div>
+        <div class="main-content-2">
+            <div class="form-part">
+                <h3 style="text-align:center">Review us</h3><br>
+                <div class="fcontainer">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <label for="id_name">Your Name</label>
+                        <input type="text" id="id_name" name="name" placeholder="Your name..">
+
+                        <label for="id_emailOrPhone">Email ID or Phone No.</label>
+                        <input type="text" id="id_emailOrPhone" name="emailOrPhone"
+                            placeholder="Your Email ID or Phone No.">
+
+                        <label for="id_comments">Comments</label>
+                        <textarea id="id_comments" name="comments" placeholder="Write something.."
+                            style="height:200px"></textarea>
+                        <div style="display: flex;align-items: center;justify-content: center;">
+                            <button type="submit" class="button"><span>Submit</span></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="map-locator">
+                <h3>Locate us on map here</h3><br>
+                <div id="googleMap">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.172108071071!2d77.5652197!3d12.9608364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15feb4061c7f%3A0xb20ffb80fb48c995!2sWisdom%20International%20School%20Chamrajpet!5e0!3m2!1sen!2sin!4v1709701794372!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+</body>
+{% endblock content %}
+
+</html>

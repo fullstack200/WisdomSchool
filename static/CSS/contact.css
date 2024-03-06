@@ -1,0 +1,356 @@
+/*Font family link*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,900;1,900&family=Roboto:wght@300;900&display=swap');
+
+:root {
+    --font: 'Montserrat';
+}
+
+body {
+    margin: 0;
+}
+
+.main-content {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.main-content i {
+    margin-bottom: 10px;
+}
+
+.main-content h3 {
+    font-weight: 400;
+}
+
+.head {
+    color: rgb(2, 3, 129);
+    font-weight: 500;
+    text-align: center;
+    padding: 100px 40px 30px;
+}
+
+.main-content h3 {
+    font-weight: 900;
+}
+
+.main-content-2 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+input[type=text],
+input[type=number],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=text],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+.form-part {
+    border: 2px solid rgb(206, 205, 205);
+    border-radius: 15px;
+    background-color: rgb(248, 248, 248);
+}
+
+.form-part h3,
+.map-locator h3 {
+    font-weight: 800;
+    text-align: center;
+}
+
+.map-locator {
+    border: 2px solid rgb(206, 205, 205);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(248, 248, 248);
+}
+
+.button {
+    border-radius: 4px;
+    background: rgb(2, 3, 129);
+    background: linear-gradient(323deg, rgba(2, 3, 129, 1) 50%, rgba(0, 0, 0, 1) 100%);
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    font-weight: 800;
+    padding: 10px 40px;
+}
+
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button:hover span {
+    padding-right: 25px;
+}
+
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+@media screen and (min-width: 1024px) {
+    .main-content {
+        padding: 50px;
+    }
+
+    .main-content div {
+        width: 50%;
+    }
+
+
+    #loc-icon {
+        height: 60px;
+        width: 60px;
+        margin-bottom: 10px;
+    }
+
+    .icon-img {
+        height: 50px;
+        width: 50px;
+        margin-bottom: 10px;
+    }
+
+    .main-content i {
+        font-size: 3rem;
+    }
+
+    #address p {
+        margin: 0;
+    }
+
+    .main-content-2 {
+        padding: 50px;
+    }
+
+    .form-part {
+        width: 60%;
+        margin: 0 20px;
+    }
+
+    .map-locator {
+        width: 40%;
+        margin: 0 20px;
+    }
+
+    .form-part,
+    .map-locator {
+        padding: 50px;
+    }
+
+    input[type=submit] {
+        width: 50%;
+    }
+
+    .map-locator iframe {
+        height: 350px;
+        width: 350px;
+    }
+
+    .button {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 820px) {
+    .main-content {
+        padding: 50px 20px;
+        justify-content: space-evenly;
+    }
+
+    .main-content div {
+        width: 30%;
+    }
+
+    .main-content i {
+        font-size: 2.5rem;
+    }
+
+    #loc-icon {
+        height: 60px;
+        width: 60px;
+        margin-bottom: 10px;
+    }
+
+    .icon-img {
+        height: 50px;
+        width: 50px;
+        margin-bottom: 10px;
+    }
+
+    .main-content-2 {
+        padding: 30px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .form-part,
+    .map-locator {
+        margin: 20px 0px;
+    }
+
+    .form-part,
+    .map-locator {
+        padding: 50px;
+    }
+
+    input[type=submit] {
+        width: 50%;
+    }
+
+    .map-locator iframe {
+        height: 300px;
+        width: 300px;
+    }
+
+    .button {
+        font-size: 1.2rem;
+    }
+
+    #address {
+        margin-top: 60px;
+    }
+
+    .head {
+        font-size: 1.8rem;
+        padding: 60px 50px 0;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+
+
+    .main-content i {
+        font-size: 1.5rem;
+    }
+
+    .main-content div {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .main-content i {
+        font-size: 1.5rem;
+    }
+
+    .main-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .main-content p {
+        font-size: 0.9rem;
+    }
+
+    #loc-icon {
+        height: 50px;
+        width: 50px;
+        margin-bottom: 10px;
+    }
+
+    .icon-img {
+        height: 40px;
+        width: 40px;
+        margin-bottom: 10px;
+    }
+
+
+    .main-content-2 {
+        margin: 0 auto;
+    }
+
+    .form-part {
+        padding: 50px 20px;
+        margin: 0;
+    }
+
+    .map-locator iframe {
+        height: 280px !important;
+        width: 280px !important;
+    }
+
+    .map-locator {
+        padding: 50px 20px;
+    }
+
+    .button {
+        font-size: 1rem;
+    }
+
+    #address {
+        margin-top: 0px;
+    }
+
+    #phone {
+        margin-top: -20px;
+    }
+
+    input[type=text],
+    label,
+    select,
+    textarea {
+        font-size: 0.9rem;
+    }
+
+    .form-part h3,
+    .map-locator h3 {
+        font-size: 1.5rem;
+    }
+
+    .head {
+        font-size: 1.2rem;
+        padding: 60px 50px 0;
+    }
+
+    #address p {
+        margin: 0;
+    }
+
+    #address {
+        margin-bottom: 40px;
+    }
+
+}

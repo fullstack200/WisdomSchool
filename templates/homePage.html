@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html lang="en">
+
+<head>
+    {% block extrahead %}
+    <!-- CSS file linking -->
+    <link rel="stylesheet" href="{% static './static/CSS/homePage.css' %}">
+
+    {% endblock %}
+</head>
+{% block content %}
+
+<body>
+    <div class="main-body">
+        <video autoplay muted loop id="myVideo">
+            <source src="{% static './static/Media/bgVideo.mp4' %}" type="video/mp4">
+        </video>
+        <h1 class="one-liner"><i>Making Education<br> Meaningful</i></h1>
+        <div class="announcements">
+            <div class="header__center">
+                <h1>Announcements</h1>
+            </div>
+            <div class="marquee">
+                <p><span>
+                        {% for i in announcements %}
+                        {{i}}
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        |
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        {% endfor %}
+                    </span></p>
+            </div>
+        </div>
+        <div class="about-us">
+            <div class="header__center">
+                <h1>About Us</h1>
+            </div>
+            <p>Since its establishment in 2000, Wisdom International School has been a prominent educational
+                institution, notable for its excellence and dedication. Among one of its branches in Chamrajpet, one
+                has
+                garnered recognition from the Government of Karnataka and holds registration under the esteemed
+                Karnataka Education Act. Throughout its history, the school has consistently produced exceptional
+                students who have achieved remarkable distinctions. This success can be attributed to the
+                institution's
+                unwavering focus on nurturing knowledge, upholding moral values, and fostering discipline among its
+                students.<br><br>
+                A remarkable feature of the school is its integration of smart technology and Artificial
+                Intelligence
+                into the learning process. By leveraging modern tools, the institution enhances the educational
+                experience and equips students with the digital skills essential for success in today's world. This
+                technological approach reflects the school's commitment to staying abreast of educational
+                advancements
+                and providing its students with a well-rounded and relevant education.
+                Behind the achievements of the school lies its experienced and specialized teaching staff. The
+                faculty,
+                experts in various fields, play a pivotal role in moulding young minds. Their guidance and
+                mentorship
+                contribute significantly to the holistic development of students, preparing them to become capable
+                and
+                responsible citizens of the future.<br><br>
+                In essence, Wisdom International School Chamrajpet is more than just a school; it's a hub of growth,
+                learning, and character-building. With its roots dating back to 2000, this institution has
+                consistently
+                delivered excellence in education. From its government recognition and smart technology integration
+                to
+                its exceptional faculty and focus on knowledge and values, the school stands as a beacon of quality
+                education, dedicated to nurturing the potential of young minds for the betterment of the nation's
+                future.<br>
+            </p>
+        </div><br>
+        <div class="header__center">
+            <h1>Recognized by</h1>
+        </div>
+        <div class="govt">
+            <img src="{% static './static/Media/Seal_of_Karnataka.svg.png' %}" alt=""><br>
+            <p>The Government of Karnataka, Established under the Karnataka Education Act, 1983</p><br><br><br>
+        </div>
+        <div class="header__center">
+            <h1>Affiliated with</h1>
+        </div>
+        <div class="govt">
+            <img src="{% static './static/Media/kseeb.png' %}" alt="">
+            <p>Karnataka Secondary Education Examination Board</p>
+
+            <img src="{% static './static/Media/KAMS.png' %}" alt="">
+            <p>KAMS Karnataka Associated Managements Of English Medium Schools In Karnataka</p>
+        </div>
+
+        <div class="header__center" id="test">
+            <h1>Testimonials</h1>
+        </div>
+        <section id="testim" class="testim">
+            <div class="centering">
+                <div class="wrap">
+                    <span id="right-arrow" class="arrow right fa fa-chevron-right"></span>
+                    <span id="left-arrow" class="arrow left fa fa-chevron-left "></span>
+                    <ul id="testim-dots" class="dots">
+                        {% for i in count %}
+                        {% if forloop.first %}
+                        <li class="dot active"></li>
+                        {% endif %}
+                        {% endfor %}
+                        {% for j in count %}
+                        <li class="dot"></li>
+                        {% endfor %}
+                    </ul>
+
+                    <div id="testim-content" class="cont">
+
+                        <div class="active">
+                            <p><i class="fa fa-quote-left"></i> {{firstReview.comments}} <i
+                                    class="fa fa-quote-right"></i>
+                            </p>
+                            <h2>- {{firstReview.name}}</h2>
+                        </div>
+                        {% for j in allReviews %}
+                        <div>
+                            <p><i class="fa fa-quote-left"></i> {{j.comments}} <i class="fa fa-quote-right"></i></p>
+                            <h2>- {{j.name}}</h2>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script src="https://use.fontawesome.com/1744f3f671.js"></script>
+        <script src="https://use.fontawesome.com/1744f3f671.js"></script>
+
+</body>
+<script>
+    // vars
+    'use strict'
+    var testim = document.getElementById("testim"),
+        testimDots = Array.prototype.slice.call(document.getElementById("testim-dots").children),
+        testimContent = Array.prototype.slice.call(document.getElementById("testim-content").children),
+        testimLeftArrow = document.getElementById("left-arrow"),
+        testimRightArrow = document.getElementById("right-arrow"),
+        testimSpeed = 6000,
+        currentSlide = 0,
+        currentActive = 0,
+        testimTimer,
+        touchStartPos,
+        touchEndPos,
+        touchPosDiff,
+        ignoreTouch = 30;
+    ;
+
+    window.onload = function () {
+
+        // Testim Script
+        function playSlide(slide) {
+            for (var k = 0; k < testimDots.length; k++) {
+                testimContent[k].classList.remove("active");
+                testimContent[k].classList.remove("inactive");
+                testimDots[k].classList.remove("active");
+            }
+
+            if (slide < 0) {
+                slide = currentSlide = testimContent.length - 1;
+            }
+
+            if (slide > testimContent.length - 1) {
+                slide = currentSlide = 0;
+            }
+
+            if (currentActive != currentSlide) {
+                testimContent[currentActive].classList.add("inactive");
+            }
+            testimContent[slide].classList.add("active");
+            testimDots[slide].classList.add("active");
+
+            currentActive = currentSlide;
+
+            clearTimeout(testimTimer);
+            testimTimer = setTimeout(function () {
+                playSlide(currentSlide += 1);
+            }, testimSpeed)
+        }
+
+        testimLeftArrow.addEventListener("click", function () {
+            playSlide(currentSlide -= 1);
+        })
+
+        testimRightArrow.addEventListener("click", function () {
+            playSlide(currentSlide += 1);
+        })
+
+        for (var l = 0; l < testimDots.length; l++) {
+            testimDots[l].addEventListener("click", function () {
+                playSlide(currentSlide = testimDots.indexOf(this));
+            })
+        }
+
+        playSlide(currentSlide);
+
+        // keyboard shortcuts
+        document.addEventListener("keyup", function (e) {
+            switch (e.keyCode) {
+                case 37:
+                    testimLeftArrow.click();
+                    break;
+
+                case 39:
+                    testimRightArrow.click();
+                    break;
+
+                case 39:
+                    testimRightArrow.click();
+                    break;
+
+                default:
+                    break;
+            }
+        })
+
+        testim.addEventListener("touchstart", function (e) {
+            touchStartPos = e.changedTouches[0].clientX;
+        })
+
+        testim.addEventListener("touchend", function (e) {
+            touchEndPos = e.changedTouches[0].clientX;
+
+            touchPosDiff = touchStartPos - touchEndPos;
+
+            console.log(touchPosDiff);
+            console.log(touchStartPos);
+            console.log(touchEndPos);
+
+
+            if (touchPosDiff > 0 + ignoreTouch) {
+                testimLeftArrow.click();
+            } else if (touchPosDiff < 0 - ignoreTouch) {
+                testimRightArrow.click();
+            } else {
+                return;
+            }
+
+        })
+    }
+</script>
+{% endblock content %}
+
+</html>

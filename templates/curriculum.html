@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html lang="en">
+
+<head>
+    {% block extrahead %}
+    <!-- CSS file linking-->
+    <link rel="stylesheet" href="{% static './static/CSS/curriculum.css' %}">
+    <!-- JS file linking -->
+    <script src="{% static './static/JS/reveal.js' %}"></script>
+    {% endblock %}
+</head>
+{% block content %}
+
+<body>
+    <div class="main-body">
+        <div class="heading">
+            <h1>Curriculum</h1>
+        </div>
+        <div class="header__center reveal">
+            <h1>Subjects</h1>
+        </div>
+        <div class="container reveal">
+            <div id="math" class="sub-container reveal">
+                <img src="{% static './static/Media/math.jpg' %}" alt="">
+                <div>
+                    <h3>Mathematics</h3>
+                    <p>At Wisdom, we believe that mathematics is not just a subject, but a powerful tool for
+                        understanding the world around us and solving real-world problems. Our Mathematics Department is
+                        committed to fostering a deep appreciation for mathematical concepts while nurturing critical
+                        thinking and problem-solving skills in our students.</p>
+
+                </div>
+            </div>
+            <div id="sci" class="sub-container reveal">
+                <img src="{% static './static/Media/science.jpg' %}" alt="">
+                <div>
+                    <h3>Science</h3>
+                    <p>At Wisdom, we believe that science is more than just a subject—it's a way of understanding the
+                        world around us and exploring the mysteries of the universe. Our Science Department is dedicated
+                        to inspiring curiosity, fostering critical thinking, and nurturing a passion for discovery in
+                        our students.</p>
+
+                </div>
+            </div>
+            <div id="soc" class="sub-container reveal">
+                <img src="{% static './static/Media/social.jpg' %}" alt="">
+                <div>
+                    <h3>Social Science</h3>
+                    <p>At Wisdom, we believe that the study of social science is essential for understanding human
+                        behavior, societies, and the world we live in. Our Social Science Department is committed to
+                        fostering critical thinking, empathy, and global awareness in our students.</p>
+                </div>
+            </div>
+            <div id="cs" class="sub-container reveal">
+                <img src="{% static './static/Media/computer.jpg' %}" alt="">
+                <div>
+                    <h3>Computer Science</h3>
+                    <p>At Wisdom, we believe that computer science is not just about coding—it's about problem-solving,
+                        creativity, and innovation. Our Computer Science Department is dedicated to preparing students
+                        for
+                        the rapidly evolving digital world and empowering them to become creators, not just consumers,
+                        of
+                        technology.</p>
+                </div>
+            </div>
+            <div id="deen" class="sub-container reveal">
+                <img src="{% static './static/Media/deeniyat.jpg' %}" alt="">
+                <div>
+                    <h3>Deeniyat</h3>
+                    <p>At Wisdom, we believe that Deeniyat, or Islamic Studies, plays a fundamental role in shaping the
+                        moral, spiritual, and ethical development of our students. Our Deeniyat Department is dedicated
+                        to
+                        providing students with a comprehensive understanding of Islamic teachings, values, and
+                        practices,
+                        while promoting tolerance, respect, and understanding of diverse faith traditions.</p>
+                </div>
+            </div>
+        </div>
+        <div class="header__center reveal">
+            <h1>Languages</h1>
+        </div>
+        <div class="container">
+            <div id="eng" class="sub-container reveal">
+                <img src="{% static './static/Media/english.jpg' %}" alt="">
+                <div>
+                    <h3>English</h3>
+                    <p>At Wisdom, we believe in the power of language to inspire, inform, and connect people from all
+                        walks
+                        of life. Our English Department is dedicated to fostering a love for literature, language, and
+                        communication in our students, while empowering them to become critical thinkers, effective
+                        communicators, and lifelong learners.</p>
+                </div>
+            </div>
+            <div id="kan" class="sub-container reveal">
+                <img src="{% static './static/Media/kannada.jpg' %}" style="border:2px solid rgb(2, 3, 129)" alt="">
+                <div>
+                    <h3>Kannada</h3>
+                    <p>At Wisdom, we celebrate the rich cultural heritage and linguistic diversity of Karnataka through
+                        our
+                        Kannada Department. Kannada is more than just a language; it's a reflection of our identity,
+                        history, and traditions. Our department is dedicated to preserving and promoting the beauty and
+                        significance of Kannada language and literature among our students.</p>
+                </div>
+            </div>
+            <div id="hin" class="sub-container reveal">
+                <img src="{% static './static/Media/hindi.jpg' %}" alt="">
+                <div>
+                    <h3>Hindi</h3>
+                    <p>At Wisdom, we embrace the beauty and richness of the Hindi language as an integral part of our
+                        cultural heritage. Our Hindi Department is committed to fostering a deep appreciation for Hindi
+                        literature, language, and culture among our students, while equipping them with the skills to
+                        communicate effectively in Hindi.</p>
+                </div>
+            </div>
+        </div>
+        <div class="header__center reveal">
+            <h1>Extra Curricular Activities</h1>
+        </div>
+        <div class="container">
+            <div id="sport" class="sub-container reveal">
+                <img src="{% static './static/Media/sports.jpg' %}" style="border:2px solid rgb(2, 3, 129)" alt="">
+
+                <div>
+                    <h3>Sports</h3>
+                    <p>At Wisdom, we believe in the importance of sports and physical activity in fostering holistic
+                        development and building strong character traits among our students. Our Sports Department is
+                        dedicated to promoting teamwork, leadership, discipline, and sportsmanship through a variety of
+                        athletic programs and activities.</p>
+                </div>
+            </div>
+            <div id="kar" class="sub-container reveal">
+                <img src="{% static './static/Media/karate.jpg' %}" alt="">
+                <div>
+                    <h3>Karate</h3>
+                    <p>At Wisdom, we are proud to offer a comprehensive Karate program that not only teaches
+                        self-defense
+                        techniques but also instills discipline, confidence, and respect in our students. Our Karate
+                        program
+                        is led by experienced instructors who are dedicated to helping students reach their full
+                        potential
+                        both inside and outside the dojo.</p>
+                </div>
+            </div>
+            <div id="box" class="sub-container reveal">
+                <img src="{% static './static/Media/boxing.jpg' %}" alt="">
+                <div>
+                    <h3>Boxing</h3>
+                    <p>At Wisdom, we are proud to offer a dynamic and comprehensive Boxing program that not only teaches
+                        the
+                        fundamentals of the sport but also instills discipline, fitness, and self-confidence in our
+                        students. Our Boxing program is led by experienced coaches who are dedicated to helping students
+                        develop their skills, reach their fitness goals, and build character both inside and outside the
+                        ring.</p>
+                </div>
+            </div>
+        </div>
+        <div class="header__center reveal">
+            <h1>Modes of Teaching</h1>
+        </div>
+        <div class="container">
+            <div id="white" class="sub-container reveal">
+                <img src="{% static './static/Media/whiteboard.jpg' %}" alt="">
+                <div>
+                    <h3>White Board Learning</h3>
+                    <p>At Wisdom, we believe in harnessing innovative teaching methods to enhance student learning
+                        experiences. Our Whiteboard Learning initiative integrates modern technology with traditional
+                        teaching practices to create engaging and interactive lessons that cater to diverse learning
+                        styles
+                        and preferences.</p>
+                </div>
+            </div>
+            <div id="proj" class="sub-container reveal">
+                <img src="{% static './static/Media/projector.jpg' %}" alt="">
+                <div>
+                    <h3>Computers and Smart Class</h3>
+                    <p>At Wisdom, we are committed to leveraging technology to enhance the teaching and learning
+                        experience
+                        for our students. Our Projector-Based Learning initiative utilizes projectors and multimedia
+                        presentations to create dynamic and interactive lessons that engage students, stimulate their
+                        curiosity, and promote deeper understanding of key concepts.</p>
+                </div>
+            </div>
+            <div id="ai" class="sub-container reveal">
+                <img src="{% static './static/Media/ai.jpg' %}" alt="">
+                <div>
+                    <h3>Artificial Intelligence</h3>
+                    <p>At Wisdom, we are at the forefront of educational innovation, harnessing the power of artificial
+                        intelligence (AI) to enhance the teaching and learning experience for our students. Our AI-Based
+                        Learning initiative utilizes cutting-edge technologies to personalize instruction, facilitate
+                        adaptive learning experiences, and empower students to reach their full potential.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock content %}
+
+</html>
