@@ -27,6 +27,9 @@ class Toppers(models.Model):
     topper3Marks = models.IntegerField()
     topper3Image= models.ImageField(upload_to='media/')
 
+ def __str__(self):
+        return str(self.yearOfexam)
+
 
 class Announcements(models.Model):
     announcementName = models.CharField(max_length=50)
