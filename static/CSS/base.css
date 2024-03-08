@@ -392,14 +392,14 @@
 
 
     .footer-section-details p {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         margin-bottom: 35px;
         text-align: center;
 
     }
 
     .footer-section-details h4, .footer-section-links h4 {
-        font-size: 1rem;
+        font-size: 1.1rem;
         font-weight: 900;
         text-align: center;
     }
@@ -411,7 +411,7 @@
 
     .footer-section-links ul li {
         margin: 10px 0;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         text-align: center;
     }
 
