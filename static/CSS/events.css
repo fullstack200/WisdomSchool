@@ -23,7 +23,7 @@ body {
 }
 
 .single-block img {
-    border-radius: 15px 50px
+    border-radius: 15px 50px;
 }
 
 .single-block:hover {
