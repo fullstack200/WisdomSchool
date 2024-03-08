@@ -61,7 +61,7 @@ hr {
     .sub-content2 img {
         height: 300px;
         width: 300px;
-        border-radius: 50px 10px;
+        border-radius: 15px 50px;
     }
 
     .sub-content1 p,
@@ -103,7 +103,7 @@ hr {
     .sub-content2 img {
         height: 250px;
         width: 400px;
-        border-radius: 50px 10px;
+        border-radius: 15px 50px;
         margin-bottom: 30px;
     }
 
@@ -148,7 +148,7 @@ hr {
     .sub-content2 img {
         height: 200px;
         width: 300px;
-        border-radius: 50px 10px;
+        border-radius: 15px 50px;
         margin-bottom: 30px;
     }
 
