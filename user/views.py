@@ -5,22 +5,14 @@ from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView
 from django.http import HttpResponse
 from django.template.loader import get_template
-from .models import Testimonials
 from owner.models import Pictures, Toppers, Announcements
-
+from .models import Enquiries
 # Create your views here.
 
 def homepageView(request):
-    testimonials = Testimonials.objects.all()
     announcements = Announcements.objects.all()
-    noOfTestimonials = len(testimonials) - 1
     template = get_template("homePage.html") 
     context = {
-        'firstReview':testimonials[0],
-        'allReviews':testimonials[1:],
-        # For Numeric iteration in django template. 
-        'count1':range(1),
-        'count':range(noOfTestimonials),
         'announcements':announcements
     }
     return HttpResponse(template.render(context,request))
@@ -34,7 +26,7 @@ class LifeAtWisdom(TemplateView):
 
 class ContactView(CreateView):
     template_name = "contact.html"
-    model = Testimonials
+    model = Enquiries
     fields = '__all__'
     success_url = 'contact'
     
