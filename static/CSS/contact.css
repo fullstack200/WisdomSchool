@@ -300,6 +300,8 @@ textarea {
     }
 
     input[type=text],
+    input[type=number],
+    input[type=email],
     label,
     select,
     textarea {
