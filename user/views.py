@@ -58,11 +58,11 @@ def sportsView(request):
     }
     return HttpResponse(template.render(context,request))
 
-def exhibitionView(request):
-    mydata = Pictures.objects.filter(pictureType="Exhibition")
-    template = loader.get_template('exhibition.html')
+def eventView(request):
+    mydata = Pictures.objects.filter(pictureType="Event")
+    template = loader.get_template('event.html')
     context = {
-        'exhibition':mydata,
+        'event':mydata,
     }
     return HttpResponse(template.render(context,request))
 
