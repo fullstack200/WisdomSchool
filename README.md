@@ -10,6 +10,8 @@ Welcome to the Wisdom School website! This is a dynamic platform designed to sho
 - **Static Pages:**
   - Display core values of the school
   - Showcase the curriculum followed
+- **Contact Information:** Display contact details for parents/students inquiries
+- **Customer Inquiry Forms:** Allows parents/students to reach out with queries through contact forms
 - **Responsive Design:** The website is fully responsive, providing an optimal viewing experience on various devices.
 
 ## Technologies Used
