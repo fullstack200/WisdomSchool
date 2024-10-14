@@ -40,7 +40,7 @@ def toppersView(request):
     return HttpResponse(template.render(context,request))
     
 class GalleryView(TemplateView):
-    template_name = "events.html"
+    template_name = "gallery.html"
      
 def classroomsView(request):
     mydata = Pictures.objects.filter(pictureType="Classroom")
