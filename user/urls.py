@@ -11,7 +11,7 @@ urlpatterns = [
     path('gallery',GalleryView.as_view(),name='gallery'),
     path('gallery/classrooms',classroomsView,name='classrooms'),
     path('gallery/sports',sportsView,name='sports'),
-    path('gallery/events',eventView,name='exhibition'),
+    path('gallery/events',eventView,name='events'),
     path('gallery/competitions=',competitionsView,name='competitions'),
     path('gallery/graduation',graduationView,name='graduation'),
     path('gallery/schooltrips',schoolTripView,name='schooltrips'),
