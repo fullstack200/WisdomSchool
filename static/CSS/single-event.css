@@ -3,7 +3,8 @@
     border-radius: 5px;
     cursor: zoom-in;
     display: block;
-    height:180px;
+    height: 180px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .img-panel {
@@ -40,8 +41,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
-
 }
 
 .img-wrapper {
