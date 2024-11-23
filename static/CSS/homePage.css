@@ -1,6 +1,6 @@
 #myVideo {
   width: 100%;
-  filter: brightness(30%);
+  filter: brightness(50%);
   height: 80%;
 }
 
@@ -61,7 +61,7 @@
   .one-liner {
     font-size: 4.8em;
     width: 95%;
-    top: 70%;
+    top: 85%;
     left: 50%;
   }
 
