@@ -5,7 +5,7 @@ from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView
 from django.http import HttpResponse
 from django.template.loader import get_template
-from owner.models import Pictures, Toppers, Announcements
+from owner.models import Pictures, YearOfExam, Announcements
 from .models import Enquiries
 # Create your views here.
 
@@ -31,13 +31,14 @@ class ContactView(CreateView):
     success_url = 'contact'
     
 
-def toppersView(request):
-    toppers = Toppers.objects.all()
-    template = get_template("toppers.html") 
+def YearOfExamView(request):
+    # Retrieve all Toppers and their associated DistinctionHolders
+    toppers = YearOfExam.objects.prefetch_related('distinction_holders').all()
     context = {
-        'toppers':toppers,
+        'toppers': toppers,
     }
-    return HttpResponse(template.render(context,request))
+    return render(request, "toppers.html", context)
+
     
 class GalleryView(TemplateView):
     template_name = "gallery.html"
