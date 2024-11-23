@@ -7,9 +7,8 @@
     {% block extrahead %}
     <!-- CSS file linking-->
     <link rel="stylesheet" href="{% static './static/CSS/toppers.css' %}">
-     <!-- JS file linking -->
-     <script src="{% static './static/JS/reveal.js' %}"></script>
-
+    <!-- JS file linking -->
+    <script src="{% static './static/JS/reveal.js' %}"></script>
     {% endblock %}
 </head>
 {% block content %}
@@ -20,26 +19,18 @@
             <h1>Academic Achievements</h1>
         </div>
         <div class="topper-block">
-            {% for i in toppers %}
+            {% for topper in toppers %}
             <div class="header__center reveal">
-                <h1>Year - {{ i.yearOfexam }}</h1>
+                <h1>Year - {{ topper.year_of_exam }}</h1>
             </div>
             <div class="topper-sub-block reveal">
+                {% for distinction in topper.distinction_holders.all %}
                 <div class="img-name">
-                    <img src="{{ i.topper1Image.url }}" alt=""><br>
-                    <p style="margin-top:20px;">{{ i.topper1Name }}</p>
-                    <p>Percentage: {{ i.topper1Marks }} %</p>
+                    <img src="{{ distinction.image.url }}" alt=""><br>
+                    <p style="margin-top:20px;">{{ distinction.name }}</p>
+                    <p>Marks: {{ distinction.marks }}%</p>
                 </div>
-                <div class="img-name">
-                    <img src="{{ i.topper2Image.url }}" alt=""><br>
-                    <p style="margin-top:20px;">{{ i.topper2Name }}</p>
-                    <p>Percentage: {{ i.topper2Marks }} %</p>
-                </div>
-                <div class="img-name">
-                    <img src="{{ i.topper3Image.url }}" alt=""><br>
-                    <p style="margin-top:20px;">{{ i.topper3Name }}</p>
-                    <p>Percentage: {{ i.topper3Marks }} %</p>
-                </div>
+                {% endfor %}
             </div><br><br>
             {% endfor %}
         </div>
