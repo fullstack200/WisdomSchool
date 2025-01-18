@@ -17,7 +17,7 @@
     border-radius: 5px;
 
     &:hover {
-        background-color: #20A4F3;
+        background-color: lightgray;
     }
 }
 
@@ -27,16 +27,13 @@
     font-size: 1rem;
 }
 
-
 .img-panel__selct {
-    background-color: #20A4F3;
-
+    background-color: lightgray;
 }
 
 .display-box {
-    padding: 1em;
-    max-width: 1000px;
-    min-width: 300px;
+    padding: 0.6em;
+    width:100%;
     margin: 1em auto;
     display: flex;
     flex-direction: row;
