@@ -23,5 +23,4 @@ Welcome to the Wisdom School website! This is a dynamic platform designed to sho
   - Python
   - Django
 - **Database:**
-  - MySQL
-
+  - SQLite
